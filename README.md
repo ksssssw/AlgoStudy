@@ -1,13 +1,13 @@
 # AlgoStudy
 알고리즘 코딩테스트 공부를 위한 저장소입니다. (with https://programmers.co.kr)
 
-### Level1 ~ Level3의 모든 문제를 푸는것을 목표로 함
+### Level 1 ~ Level 3의 모든 문제를 푸는것을 목표로 함
 ### (모든 문제는 Python으로 풀었음)
 
 ***
 
 <details>
-<summary>Level1</summary>
+<summary>Level 1</summary>
 <div markdown="1">
 
     1. 로또 맞추기
