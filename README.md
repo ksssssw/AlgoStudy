@@ -7,7 +7,7 @@
 ***
 
 <details>
-<summary># Level1</summary>
+### <summary>Level1</summary>
 <div markdown="1">
 
     1. 로또 맞추기
