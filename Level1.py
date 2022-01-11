@@ -307,10 +307,19 @@
 ######################################
 #                폰켓몬                #
 ######################################
+import itertools
+
 def solution(nums):
+    lengths = len(nums) // 2
+    u_type = list(set(nums))
     answer = 0
+    
+    for i in u_type:
+        if answer < lengths:
+            answer += 1
+    
     return answer
 
 
-nums = [3, 1, 2, 3]
+nums = [3,3,3,2,2,4]
 print(solution(nums))
