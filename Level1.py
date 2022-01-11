@@ -307,19 +307,47 @@
 ######################################
 #                폰켓몬                #
 ######################################
-import itertools
+# import itertools
 
-def solution(nums):
-    lengths = len(nums) // 2
-    u_type = list(set(nums))
-    answer = 0
+# def solution(nums):
+#     lengths = len(nums) // 2
+#     u_type = list(set(nums))
+#     answer = 0
     
-    for i in u_type:
-        if answer < lengths:
-            answer += 1
+#     for i in u_type:
+#         if answer < lengths:
+#             answer += 1
     
-    return answer
+#     return answer
 
 
-nums = [3,3,3,2,2,4]
-print(solution(nums))
+# nums = [3,3,3,2,2,4]
+# print(solution(nums))
+
+######################################
+#                실패율                #
+######################################
+def solution(N, stages):
+    answer = []
+    result = {}
+    total_player = len(stages)
+    
+    for i in range(1, N + 1):
+        if total_player != 0 :
+            cnt = stages.count(i)
+            temp = cnt / total_player
+            result[i] = temp
+            total_player -= cnt
+        else:
+            result[i] = 0
+    
+    # print(result)
+    # sort_result = dict(sorted(result.items(), key = lambda item : item[1], reverse = True))
+    # answer = list(sort_result.keys())
+    
+    return sorted(result, key = lambda x : result[x], reverse = True)
+
+N = 4
+# stages = [2, 1, 2, 6, 2, 4, 3, 3]
+stages = [4,4,4,4,4]
+print(solution(N, stages))
