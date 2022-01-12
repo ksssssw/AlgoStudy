@@ -354,26 +354,43 @@
 ######################################
 #           약수의 개수와 덧셈           #
 ######################################
-def checkNumber(num):
-    cnt = 0
-    for i in range(1, num + 1):
-        if num % i == 0:
-            cnt += 1
-    if cnt % 2 == 0:
-        return True
-    else:
-        return False
+# def checkNumber(num):
+#     cnt = 0
+#     for i in range(1, num + 1):
+#         if num % i == 0:
+#             cnt += 1
+#     if cnt % 2 == 0:
+#         return True
+#     else:
+#         return False
 
-def solution(left, right):
-    answer = 0
-    for i in range(left, right + 1):
-        if checkNumber(i) == True:
-            answer += i
-        else:
-            answer -= i
+# def solution(left, right):
+#     answer = 0
+#     for i in range(left, right + 1):
+#         if checkNumber(i) == True:
+#             answer += i
+#         else:
+#             answer -= i
+#     return answer
+
+
+# left = 13
+# right = 17
+# print(solution(left, right))
+
+######################################
+#               3진법 뒤집기            #
+######################################
+def solution(n):
+    answer = ''
+    
+    while n >= 1:
+        n, rest = divmod(n, 3)
+        answer += str(rest)
+    
+    answer = int(answer, 3)
+    
     return answer
 
-
-left = 13
-right = 17
-print(solution(left, right))
+n = 45
+print(solution(n))
