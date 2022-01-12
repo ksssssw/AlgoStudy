@@ -416,14 +416,33 @@
 ######################################
 #           두 개 뽑아서 더하기           #
 ######################################
-import itertools
-def solution(numbers):
-    answer = []
-    comb = list(itertools.combinations(numbers, 2))
-    for a, b in comb:
-        answer.append(a + b)
-    answer = sorted(list(set(answer)))
-    return answer
+# import itertools
+# def solution(numbers):
+#     answer = []
+#     comb = list(itertools.combinations(numbers, 2))
+#     for a, b in comb:
+#         answer.append(a + b)
+#     answer = sorted(list(set(answer)))
+#     return answer
 
-numbers = [2,1,3,4,1]
-print(solution(numbers))
+# numbers = [2,1,3,4,1]
+# print(solution(numbers))
+
+######################################
+#               2016년                #
+######################################
+def solution(a, b):
+    answer = ''
+    month_for_day = [31,29,31,30,31,30,31,31,30,31,30,31]
+    day = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"]
+    date = 0
+    format_date = 0
+    for i in range(0, a - 1):
+        date += month_for_day[i]
+    date += b
+    print(date)
+    return day[(date - 1) % 7 - 2]
+
+a = 2
+b = 2
+print(solution(a, b))
