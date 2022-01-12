@@ -470,12 +470,11 @@
 ######################################
 #        나머지가 1이 되는 수 찾기         #
 ######################################
-def solution(n):
-    answer = 0
-    for i in range(1, n):
-        if n % i == 1:
-            return i
+# def solution(n):
+#     for i in range(1, n):
+#         if n % i == 1:
+#             return i
     
 
-n = 10
-print(solution(n))
+# n = 10
+# print(solution(n))
