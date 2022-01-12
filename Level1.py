@@ -398,17 +398,32 @@
 ######################################
 #                예산                 #
 ######################################
-def solution(d, budget):
-    answer = 0
-    d = sorted(d)
-    rest = budget
+# def solution(d, budget):
+#     answer = 0
+#     d = sorted(d)
+#     rest = budget
     
-    for cost in d:
-        if cost < rest:
-            answer += 1
-            rest -= cost
+#     for cost in d:
+#         if cost <= rest:
+#             answer += 1
+#             rest -= cost
+#     return answer
+
+# d = [1,3,2,5,4]
+# budget = 9
+# print(solution(d, budget))
+
+######################################
+#           두 개 뽑아서 더하기           #
+######################################
+import itertools
+def solution(numbers):
+    answer = []
+    comb = list(itertools.combinations(numbers, 2))
+    for a, b in comb:
+        answer.append(a + b)
+    answer = sorted(list(set(answer)))
     return answer
 
-d = [1,3,2,5,4]
-budget = 9
-print(solution(d, budget))
+numbers = [2,1,3,4,1]
+print(solution(numbers))
