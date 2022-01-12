@@ -449,20 +449,33 @@
 ######################################
 #              최소직사각형              #
 ######################################
-def solution(sizes):
-    answer = 0
-    w = []
-    h = []
+# def solution(sizes):
+#     answer = 0
+#     w = []
+#     h = []
     
-    for a, b in sizes:
-        if a < b:
-            w.append(b)
-            h.append(a)
-        else:
-            w.append(a)
-            h.append(b)
-    answer = max(w) * max(h)
-    return answer
+#     for a, b in sizes:
+#         if a < b:
+#             w.append(b)
+#             h.append(a)
+#         else:
+#             w.append(a)
+#             h.append(b)
+#     answer = max(w) * max(h)
+#     return answer
 
-sizes = [[60, 50], [30, 70], [60, 30], [80, 40]]
-print(solution(sizes))
+# sizes = [[60, 50], [30, 70], [60, 30], [80, 40]]
+# print(solution(sizes))
+
+######################################
+#        나머지가 1이 되는 수 찾기         #
+######################################
+def solution(n):
+    answer = 0
+    for i in range(1, n):
+        if n % i == 1:
+            return i
+    
+
+n = 10
+print(solution(n))
