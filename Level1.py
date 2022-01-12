@@ -381,16 +381,34 @@
 ######################################
 #               3진법 뒤집기            #
 ######################################
-def solution(n):
-    answer = ''
+# def solution(n):
+#     answer = ''
     
-    while n >= 1:
-        n, rest = divmod(n, 3)
-        answer += str(rest)
+#     while n >= 1:
+#         n, rest = divmod(n, 3)
+#         answer += str(rest)
     
-    answer = int(answer, 3)
+#     answer = int(answer, 3)
     
+#     return answer
+
+# n = 45
+# print(solution(n))
+
+######################################
+#                예산                 #
+######################################
+def solution(d, budget):
+    answer = 0
+    d = sorted(d)
+    rest = budget
+    
+    for cost in d:
+        if cost < rest:
+            answer += 1
+            rest -= cost
     return answer
 
-n = 45
-print(solution(n))
+d = [1,3,2,5,4]
+budget = 9
+print(solution(d, budget))
