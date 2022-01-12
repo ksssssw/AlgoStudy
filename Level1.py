@@ -431,18 +431,38 @@
 ######################################
 #               2016년                #
 ######################################
-def solution(a, b):
-    answer = ''
-    month_for_day = [31,29,31,30,31,30,31,31,30,31,30,31]
-    day = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"]
-    date = 0
-    format_date = 0
-    for i in range(0, a - 1):
-        date += month_for_day[i]
-    date += b
-    print(date)
-    return day[(date - 1) % 7 - 2]
+# def solution(a, b):
+#     answer = ''
+#     month_for_day = [31,29,31,30,31,30,31,31,30,31,30,31]
+#     day = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"]
+#     date = 0
+#     format_date = 0
+#     for i in range(0, a - 1):
+#         date += month_for_day[i]
+#     date += b
+#     return day[(date - 1) % 7 - 2]
 
-a = 2
-b = 2
-print(solution(a, b))
+# a = 2
+# b = 2
+# print(solution(a, b))
+
+######################################
+#              최소직사각형              #
+######################################
+def solution(sizes):
+    answer = 0
+    w = []
+    h = []
+    
+    for a, b in sizes:
+        if a < b:
+            w.append(b)
+            h.append(a)
+        else:
+            w.append(a)
+            h.append(b)
+    answer = max(w) * max(h)
+    return answer
+
+sizes = [[60, 50], [30, 70], [60, 30], [80, 40]]
+print(solution(sizes))
