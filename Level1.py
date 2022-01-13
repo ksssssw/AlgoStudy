@@ -474,7 +474,26 @@
 #     for i in range(1, n):
 #         if n % i == 1:
 #             return i
-    
 
 # n = 10
 # print(solution(n))
+
+######################################
+#           부족한 금액 계산하기          #
+######################################
+def solution(price, money, count):
+    answer = 0
+    total_money = 0
+    
+    for i in range(1, count + 1):
+        total_money += (price * i)
+    
+    if total_money <= money:
+        return 0
+    else:
+        return total_money - money
+
+price = 3
+money = 20
+count = 4
+print(solution(price, money, count))
