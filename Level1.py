@@ -500,20 +500,62 @@
 ######################################
 #               비밀지도               #
 ######################################
-def solution(n, arr1, arr2):
-    answer = []
+# def solution(n, arr1, arr2):
+#     answer = []
     
-    for num1, num2 in zip(arr1, arr2):
-        temp = bin(num1 | num2)[2:]
-        if len(temp) < n:
-            temp = '0' * (n - len(temp)) + temp
-        temp = temp.replace("0", " ")
-        temp = temp.replace("1", "#")
-        answer.append(temp)
+#     for num1, num2 in zip(arr1, arr2):
+#         temp = bin(num1 | num2)[2:]
+#         if len(temp) < n:
+#             temp = '0' * (n - len(temp)) + temp
+#         temp = temp.replace("0", " ")
+#         temp = temp.replace("1", "#")
+#         answer.append(temp)
         
+#     return answer
+
+# n = 5
+# arr1 = [9, 20, 28, 18, 11]
+# arr2 = [30, 1, 21, 17, 28]
+# print(solution(n, arr1, arr2))
+
+######################################
+#             신고 결과 받기             #
+######################################
+def solution(id_list, report, k):
+    answer = [0 for i in range(len(id_list))]
+    report_temp = {}
+    report_user = []
+    out_user = []
+    report = list(set(report))
+    
+    for i in report:
+        user, target = i.split(' ')
+        if user in report_temp:
+            report_temp[user] += (' ' +target)
+        else:
+            report_temp[user] = target
+    
+    report_user = list(report_temp.values())
+    report_user = ' '.join(report_user)
+    
+    for user in id_list:
+        if report_user.count(user) >= k:
+            out_user.append(user)
+    
+    for idx, user in enumerate(id_list):
+        for out in out_user:
+            if user not in list(report_temp.keys()):
+                answer[idx] = 0
+            elif report_temp[user].count(out) > 0:
+                answer[idx] += 1
+            else:
+                answer[idx] += 0
+    
+    print(report_temp)
     return answer
 
-n = 5
-arr1 = [9, 20, 28, 18, 11]
-arr2 = [30, 1, 21, 17, 28]
-print(solution(n, arr1, arr2))
+
+id_list = ["muzi", "frodo", "apeach", 'neo']
+report = ["muzi frodo","apeach frodo","frodo neo","muzi neo","apeach muzi"]
+k = 2
+print(solution(id_list, report, k))
