@@ -500,24 +500,17 @@
 ######################################
 #               비밀지도               #
 ######################################
-def changeBin(n, arr):
-    bin_arr = []
-    for num in arr:
-        if len(bin(num)[2:]) < n:
-            bin_arr.append(("0" * (n - len(bin(num)[2:]))) + bin(num)[2:])
-        else:
-            bin_arr.append(bin(num)[2:])
-    return bin_arr
-
 def solution(n, arr1, arr2):
     answer = []
-    bin_arr1 = []
-    bin_arr2 = []
     
-    bin_arr1 = changeBin(n, arr1)
-    bin_arr2 = changeBin(n, arr2)
-    print(bin_arr1)
-    print(bin_arr2)
+    for num1, num2 in zip(arr1, arr2):
+        temp = bin(num1 | num2)[2:]
+        if len(temp) < n:
+            temp = '0' * (n - len(temp)) + temp
+        temp = temp.replace("0", " ")
+        temp = temp.replace("1", "#")
+        answer.append(temp)
+        
     return answer
 
 n = 5
