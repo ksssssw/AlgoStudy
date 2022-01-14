@@ -481,19 +481,46 @@
 ######################################
 #           부족한 금액 계산하기          #
 ######################################
-def solution(price, money, count):
-    answer = 0
-    total_money = 0
+# def solution(price, money, count):
+#     total_money = 0
     
-    for i in range(1, count + 1):
-        total_money += (price * i)
+#     for i in range(1, count + 1):
+#         total_money += (price * i)
     
-    if total_money <= money:
-        return 0
-    else:
-        return total_money - money
+#     if total_money <= money:
+#         return 0
+#     else:
+#         return total_money - money
 
-price = 3
-money = 20
-count = 4
-print(solution(price, money, count))
+# price = 3
+# money = 20
+# count = 4
+# print(solution(price, money, count))
+
+######################################
+#               비밀지도               #
+######################################
+def changeBin(n, arr):
+    bin_arr = []
+    for num in arr:
+        if len(bin(num)[2:]) < n:
+            bin_arr.append(("0" * (n - len(bin(num)[2:]))) + bin(num)[2:])
+        else:
+            bin_arr.append(bin(num)[2:])
+    return bin_arr
+
+def solution(n, arr1, arr2):
+    answer = []
+    bin_arr1 = []
+    bin_arr2 = []
+    
+    bin_arr1 = changeBin(n, arr1)
+    bin_arr2 = changeBin(n, arr2)
+    print(bin_arr1)
+    print(bin_arr2)
+    return answer
+
+n = 5
+arr1 = [9, 20, 28, 18, 11]
+arr2 = [30, 1, 21, 17, 28]
+print(solution(n, arr1, arr2))
