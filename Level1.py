@@ -521,41 +521,54 @@
 ######################################
 #             신고 결과 받기             #
 ######################################
-def solution(id_list, report, k):
-    answer = [0 for i in range(len(id_list))]
-    report_temp = {}
-    report_user = []
-    out_user = []
-    report = list(set(report))
+# def solution(id_list, report, k):
+#     answer = [0 for i in range(len(id_list))]
+#     report_temp = {}
+#     report_user = []
+#     out_user = []
+#     report = list(set(report))
     
-    for i in report:
-        user, target = i.split(' ')
-        if user in report_temp:
-            report_temp[user] += (' ' +target)
-        else:
-            report_temp[user] = target
+#     for i in report:
+#         user, target = i.split(' ')
+#         if user in report_temp:
+#             report_temp[user] += (' ' +target)
+#         else:
+#             report_temp[user] = target
     
-    report_user = list(report_temp.values())
-    report_user = ' '.join(report_user)
+#     report_user = list(report_temp.values())
+#     report_user = ' '.join(report_user)
     
-    for user in id_list:
-        if report_user.count(user) >= k:
-            out_user.append(user)
+#     for user in id_list:
+#         if report_user.count(user) >= k:
+#             out_user.append(user)
     
-    for idx, user in enumerate(id_list):
-        for out in out_user:
-            if user not in list(report_temp.keys()):
-                answer[idx] = 0
-            elif report_temp[user].count(out) > 0:
-                answer[idx] += 1
-            else:
-                answer[idx] += 0
+#     for idx, user in enumerate(id_list):
+#         for out in out_user:
+#             if user not in list(report_temp.keys()):
+#                 answer[idx] = 0
+#             elif report_temp[user].count(out) > 0:
+#                 answer[idx] += 1
+#             else:
+#                 answer[idx] += 0
     
-    print(report_temp)
+#     return answer
+
+
+# id_list = ["muzi", "frodo", "apeach", 'neo']
+# report = ["muzi frodo","apeach frodo","frodo neo","muzi neo","apeach muzi"]
+# k = 2
+# print(solution(id_list, report, k))
+
+######################################
+#         가운데 글자 가져오기            #
+######################################
+def solution(s):
+    answer = ''
+    if len(s) % 2 == 0:
+        return s[len(s) // 2 - 1:len(s) // 2 + 1]
+    else:
+        return s[len(s) // 2]
     return answer
-
-
-id_list = ["muzi", "frodo", "apeach", 'neo']
-report = ["muzi frodo","apeach frodo","frodo neo","muzi neo","apeach muzi"]
-k = 2
-print(solution(id_list, report, k))
+    
+s = 'qwer'
+print(solution(s))
