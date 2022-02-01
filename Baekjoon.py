@@ -113,19 +113,80 @@
 #     print(i)
 
 ################################################
-p = int(input())
-class_list = [list(map(int, input().split())) for x in range(p)]
-result_list = []
+# p = int(input())
+# class_list = [list(map(int, input().split())) for x in range(p)]
+# result_list = []
 
-for i in class_list:
-    cnt = 0
-    class_avg = sum(i[1:]) / i[0]
-    for score in i[1:]:
-        if score > class_avg:
-            cnt += 1
+# for i in class_list:
+#     cnt = 0
+#     class_avg = sum(i[1:]) / i[0]
+#     for score in i[1:]:
+#         if score > class_avg:
+#             cnt += 1
+#         else:
+#             pass
+#     result_list.append('%.3f%%' % (cnt/i[0]*100.0))
+
+# for i in result_list:
+#     print(i)
+
+################################################
+
+# def nToSum(a):
+#     result = 0
+#     for i in a:
+#         result += i
+#     return result
+
+################################################
+# c = input()
+# print(ord(c))
+
+################################################
+# N = input()
+# p = list(map(int,input()))
+# print(sum(p))
+
+################################################
+# result_list = []
+# S = list(input())
+# for i in range(97, 123):
+#     if chr(i) in S:
+#         result_list.append(S.index(chr(i)))
+#     else:
+#         result_list.append(-1)
+
+# for i in result_list:
+#     print(i, end = ' ')
+
+################################################
+# T = int(input())
+# input_list = []
+
+# for i in range(T):
+#     input_list.append(input())
+
+# for i in input_list:
+#     for j in i[2:]:
+#         print(j * int(i[0]), end = '')
+#     print()
+
+################################################
+S = input()
+S = S.lower()
+cnt_list = []
+
+if len(S) == 1:
+    print(S[0].upper())
+else:
+    for i in list(set(S)):
+        cnt = 0
+        if S.count(i) == 1:
+            cnt = 0
         else:
-            pass
-    result_list.append('%.3f%%' % (cnt/i[0]*100.0))
-
-for i in result_list:
-    print(i)
+            cnt = 1
+        cnt_list.append(cnt)
+    if cnt_list.count(1) == 1:
+        print(S[cnt_list.index(1)].upper())
+    else:
+        print('?')
