@@ -171,22 +171,61 @@
 #         print(j * int(i[0]), end = '')
 #     print()
 
+# 미해결..
 ################################################
-S = input()
-S = S.lower()
-cnt_list = []
+# S = input()
+# S = S.lower()
+# cnt_list = []
 
-if len(S) == 1:
-    print(S[0].upper())
-else:
-    for i in list(set(S)):
-        cnt = 0
-        if S.count(i) == 1:
-            cnt = 0
-        else:
-            cnt = 1
-        cnt_list.append(cnt)
-    if cnt_list.count(1) == 1:
-        print(S[cnt_list.index(1)].upper())
-    else:
-        print('?')
+# if len(S) == 1:
+#     print(S[0].upper())
+# else:
+#     for i in list(set(S)):
+#         cnt = 0
+#         if S.count(i) == 1:
+#             cnt = 0
+#         else:
+#             cnt = 1
+#         cnt_list.append(cnt)
+#     if cnt_list.count(1) == 1:
+#         print(S[cnt_list.index(1)].upper())
+#     else:
+#         print('?')
+
+################################################
+# print(len(input().strip().split()))
+
+################################################
+# a, b = input().split()
+# new_a = int(''.join(reversed(a)))
+# new_b = int(''.join(reversed(b)))
+
+# if new_a > new_b:
+#     print(new_a)
+# else:
+#     print(new_b)
+
+################################################
+# phone = {'A' : 2, 'B' : 2, 'C' : 2,
+#         'D' : 3, 'E' : 3, 'F' : 3,
+#         'G' : 4, 'H' : 4, 'I' : 4,
+#         'J' : 5, 'K' : 5, 'L' : 5,
+#         'M' : 6, 'N' : 6, 'O' : 6,
+#         'P' : 7, 'Q' : 7, 'R' : 7, 'S' : 7,
+#         'T' : 8, 'U' : 8, 'V' : 8,
+#         'W' : 9, 'X' : 9, 'Y' : 9, 'Z' : 9,}
+# time = [0,2,3,4,5,6,7,8,9,10,11]
+# result = 0
+
+# s = input()
+# for i in s:
+#     result += time[phone.get(i)]
+# print(result)
+
+s = input()
+croartia_alpha = ['c=', 'c-', 'dz=', 'd-', 'lj', 'nj', 's=', 'z=']
+
+for i in croartia_alpha:
+    if i in s:
+        s = s.replace(i,'*')
+print(len(s))
