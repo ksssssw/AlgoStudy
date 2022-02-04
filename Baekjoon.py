@@ -232,16 +232,73 @@
 # print(len(s))
 
 ################################################
-n = int(input())
-for w in range(n):
-    word = input().rstrip()
-    for i in range(len(word) - 1):
-        if word[i] != word[i+1]:
-            if word[i] in word[i+1:]:
-                n -= 1
-                break
+# n = int(input())
+# for w in range(n):
+#     word = input().rstrip()
+#     for i in range(len(word) - 1):
+#         if word[i] != word[i+1]:
+#             if word[i] in word[i+1:]:
+#                 n -= 1
+#                 break
                 
-print(n)
+# print(n)
 
+################################################
+# A, B, C = map(int, input().split())
+# if B > C:
+#     print(-1)
+# elif B - C == 0:
+#     print(-1)
+# else:
+#     print(A // (C - B) + 1)
 
+################################################
+# n = int(input())
 
+# start = 1
+# cnt = 1
+
+# while n > start:
+#     start += 6 * cnt
+#     cnt += 1
+# print(cnt)
+
+################################################
+# import math
+# A, B, V = map(int, input().split())
+# answer = math.ceil((V - B) / (A - B))
+# print(answer)
+
+################################################
+# import math
+
+# def solution(p):
+#     h, w, n = p
+#     answer = ''
+#     floor = n % h
+#     num = n // h + 1
+    
+#     if floor == 0:
+#         floor = h
+#         num -= 1
+#     return (floor * 100 + num)
+
+# t = int(input())
+# p_list = []
+# for _ in range(t):
+#     p = list(map(int, input().split()))
+#     p_list.append(p)
+
+# for i in p_list:
+#     print(solution(i))
+
+################################################
+for _ in range(int(input())):
+    floor = int(input())
+    num = int(input())
+    
+    f0 = [x for x in range(1, num+1)]
+    for i in range(floor):
+        for j in range(1, num):
+            f0[j] += f0[j - 1]
+    print(f0[-1])
