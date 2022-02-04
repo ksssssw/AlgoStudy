@@ -222,10 +222,26 @@
 #     result += time[phone.get(i)]
 # print(result)
 
-s = input()
-croartia_alpha = ['c=', 'c-', 'dz=', 'd-', 'lj', 'nj', 's=', 'z=']
+################################################
+# s = input()
+# croartia_alpha = ['c=', 'c-', 'dz=', 'd-', 'lj', 'nj', 's=', 'z=']
 
-for i in croartia_alpha:
-    if i in s:
-        s = s.replace(i,'*')
-print(len(s))
+# for i in croartia_alpha:
+#     if i in s:
+#         s = s.replace(i,'*')
+# print(len(s))
+
+################################################
+n = int(input())
+for w in range(n):
+    word = input().rstrip()
+    for i in range(len(word) - 1):
+        if word[i] != word[i+1]:
+            if word[i] in word[i+1:]:
+                n -= 1
+                break
+                
+print(n)
+
+
+
