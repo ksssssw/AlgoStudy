@@ -293,12 +293,43 @@
 #     print(solution(i))
 
 ################################################
-for _ in range(int(input())):
-    floor = int(input())
-    num = int(input())
+# for _ in range(int(input())):
+#     floor = int(input())
+#     num = int(input())
     
-    f0 = [x for x in range(1, num+1)]
-    for i in range(floor):
-        for j in range(1, num):
-            f0[j] += f0[j - 1]
-    print(f0[-1])
+#     f0 = [x for x in range(1, num+1)]
+#     for i in range(floor):
+#         for j in range(1, num):
+#             f0[j] += f0[j - 1]
+#     print(f0[-1])
+
+################################################
+# def solution(n):
+#     bag = 0
+#     while n >= 0:
+#         if n % 5 == 0:
+#             bag += (n // 5)
+#             return bag
+#         n -= 3
+#         bag += 1
+#     return -1
+
+# n = int(input())
+# print(solution(n))
+
+################################################
+# a, b = map(int, input().split())
+# print(a + b)
+
+################################################
+def solution(n, lootList):
+    for loot in lootList:
+        x, y = loot
+        print(x)
+    
+n = int(input())
+lootList = []
+for _ in range(n):
+    t = list(map(int, input().split()))
+    lootList.append(t)
+print(solution(n, lootList))
