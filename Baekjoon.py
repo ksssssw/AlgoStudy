@@ -322,14 +322,63 @@
 # print(a + b)
 
 ################################################
-def solution(n, lootList):
-    for loot in lootList:
-        x, y = loot
-        print(x)
-    
+# from itertools import permutations as pm
+
+# n, m = map(int, input().split())
+# card_list = list(map(int, input().split()))
+# card_cb = []
+# card_cb = list(pm(card_list, 3))
+
+# cnt = 0
+# answer_list = []
+# for cards in card_cb:
+#     if sum(cards) <= m:
+#         answer_list.append(sum(cards))
+# print(max(answer_list))
+
+################################################
+# N = int(input())
+# temp = 0
+# for n in range(N):
+#     temp = n + sum(map(int, str(n)))
+#     if temp == N:
+#         print(n)
+#         break
+# else:
+#     print(0)
+
+################################################
+# n = int(input())
+# peoples = []
+# for _ in range(n):
+#     peoples.append(list(map(int, input().split())))
+
+# result = []    
+# for people in peoples:
+#     x, y = people
+#     cnt = 1
+#     for i in range(n):
+#         if x < peoples[i][0] and y < peoples[i][1]:
+#             cnt += 1
+#     result.append(cnt)
+
+# for i in result:
+#     if i == len(result):
+#         print(i)
+#     else:
+#         print(i, end = ' ')
+
+################################################
 n = int(input())
-lootList = []
-for _ in range(n):
-    t = list(map(int, input().split()))
-    lootList.append(t)
-print(solution(n, lootList))
+
+num = 666
+cnt = 0
+while True:
+    if '666' in str(num):
+        cnt += 1
+        num += 1
+        if cnt == n:
+            print(num - 1)
+            break
+    else:
+        num += 1
