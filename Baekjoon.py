@@ -369,16 +369,117 @@
 #         print(i, end = ' ')
 
 ################################################
-n = int(input())
+# n = int(input())
 
-num = 666
-cnt = 0
-while True:
-    if '666' in str(num):
-        cnt += 1
-        num += 1
-        if cnt == n:
-            print(num - 1)
-            break
-    else:
-        num += 1
+# num = 666
+# cnt = 0
+# while True:
+#     if '666' in str(num):
+#         cnt += 1
+#         num += 1
+#         if cnt == n:
+#             print(num - 1)
+#             break
+#     else:
+#         num += 1
+
+################################################
+# n = int(input())
+# nums = []
+# for _ in range(n):
+#     nums.append(int(input()))
+
+# nums = list(set(nums))
+# nums = sorted(nums)
+
+# for i in nums:
+#     print(i)
+
+################################################
+# 산술평균
+# def average(nums):
+#     return round(sum(nums) / len(nums))
+
+# # 중앙값
+# def middleNum(nums):
+#     nums = sorted(nums)
+#     return nums[len(nums) // 2]
+
+# # 최빈값
+# from collections import Counter
+# def manyNum(nums):
+#     nums = sorted(nums)
+#     nums_s = Counter(nums).most_common()
+
+#     if len(nums_s) > 1:
+#         if nums_s[0][1] == nums_s[1][1]:
+#             return nums_s[1][0]
+#         else:
+#             return nums_s[0][0]
+#     else:
+#         return nums_s[0][0]
+
+
+# # 범위
+# def rangeNums(nums):
+#     nums = sorted(nums)
+#     return nums[-1] - nums[0]
+
+
+# n = int(input())
+# nums = []
+# for _ in range(n):
+#     nums.append(int(input()))
+    
+# print(average(nums))
+# print(middleNum(nums))
+# print(manyNum(nums))
+# print(rangeNums(nums))
+
+################################################
+# n = list(str(input()))
+# n.sort(reverse=True)
+# print("".join(n))
+
+################################################
+# n = int(input())
+# nums = []
+# for _ in range(n):
+#     nums.append(list(map(int, input().split())))
+# nums.sort()
+
+# for n in nums:
+#     print('{} {}'.format(n[0], n[1]))
+
+################################################
+# import sys
+# strList = []
+
+# for i in range(int(input())):
+#     strList.append(sys.stdin.readline().rstrip())
+
+# strList = list(set(strList))
+# strList.sort()
+# strList.sort(key = len)
+# print('\n'.join(strList))
+
+################################################
+# import sys
+# peoples = []
+
+# for i in range(int(input())):
+#     peoples.append(list(map(str, sys.stdin.readline().rstrip().split())))
+# peoples.sort(key = lambda x:(x[0]))
+
+# for i in peoples:
+#     print('{} {}'.format(i[0], i[1]))
+
+################################################
+n = int(input())
+nums = list(map(int, input().split()))
+
+newNums = list(sorted(set(nums)))
+newNums = {newNums[i] : i for i in range(len(newNums))}
+print(*list(newNums[i] for i in nums))
+
+
