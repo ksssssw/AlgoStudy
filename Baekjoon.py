@@ -475,11 +475,102 @@
 #     print('{} {}'.format(i[0], i[1]))
 
 ################################################
-n = int(input())
-nums = list(map(int, input().split()))
+# n = int(input())
+# nums = list(map(int, input().split()))
 
-newNums = list(sorted(set(nums)))
-newNums = {newNums[i] : i for i in range(len(newNums))}
-print(*list(newNums[i] for i in nums))
+# newNums = list(sorted(set(nums)))
+# newNums = {newNums[i] : i for i in range(len(newNums))}
+# print(*list(newNums[i] for i in nums))
 
+################################################
+# n, m = map(int, input().split())
+# s = []
 
+# def dfs():
+#     if len(s) == m:
+#         print(' '.join(map(str, s)))
+    
+#     for i in range(1, n+1):
+#         if i not in s:
+#             s.append(i)
+#             dfs()
+#             s.pop()
+
+# dfs()
+
+################################################
+# n, m = map(int, input().split())
+# s = []
+# t = []
+
+# def dfs(start):
+#     if len(s) == m:
+#         print(' '.join(map(str, s)))
+        
+#     for i in range(start, n+1):
+#         if i not in s:
+#             s.append(i)
+#             dfs(i + 1)
+#             s.pop()
+# dfs(1)
+
+################################################
+# n, m = map(int, input().split())
+# s = []
+
+# def dfs():
+#     if len(s) == m:
+#         print(' '.join(map(str, s)))
+#         return 
+        
+#     for i in range(1, n+1):
+#         s.append(i)
+#         dfs()
+#         s.pop()
+        
+# dfs()
+
+################################################
+# n, m = map(int, input().split())
+# s = []
+
+# def dfs(start):
+#     if len(s) == m:
+#         print(' '.join(map(str, s)))
+#         return
+
+#     for i in range(start, n+1):
+#         s.append(i)
+#         dfs(i)
+#         s.pop()
+        
+# dfs(1)
+
+########### dfs, bfs 공부... ############
+# 스택은 후입선출 방식
+# 파이썬은 append함수와 pop함수를 사용해서 스택을 구현할 수 있다.
+# 따로 함수를 구현할 필요가 없음 두 함수 모두 시간복잡도가 상수임 O(1)
+# 거꾸로 출력할때는 print(list_name[::-1])을 통해 거꾸로 출력해주면 됨
+
+# 큐는 선입선출 방식
+# 'from collections import deque' 라이브러리를 사용해 가능
+# list를 사용하면 시간복잡도가 너무 늘어남
+# from collections import deque
+# queue = deque()
+# queue.append(5) # 삽입
+# queue.append(2)
+# queue.append(3)
+# queue.append(7)
+# queue.popleft() # 가장 왼쪽 데이터를 삭제
+
+# 재귀 함수는 자기 자신을 다시 호출하는 함수를 말한다.
+# dfs를 구현할때 자주 사용됨 매우 중요함!!
+# Recursive Function == 재귀 함수
+# 종료 조건을 잘 넣어줘야함
+def gcd(a, b):
+    if a % b == 0:
+        return b
+    else:
+        return gcd(b, a % b)
+        
+print(gcd(192, 162))
