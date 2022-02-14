@@ -26,6 +26,3 @@ class Main {
         System.out.println(sol.solution(A));
     }
 }
-
-
-
