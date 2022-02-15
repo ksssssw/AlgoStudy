@@ -6,16 +6,25 @@ import java.util.*;
 class Solution {
     int solution(int[] A) {
         int N = A.length;
+        ArrayList<Integer> newA = new ArrayList<Integer>();
+        Arrays.stream(A).toArray();
+        HashMap<Integer, List<Integer>> temp = new HashMap<Integer, List<Integer>>();
+
         int result = 0;
-        for (int i = 0; i < N; i++)
-            for (int j = 0; j < N; j++){
-                if (A[i] == A[j]) {
-                    System.out.println(Math.abs(i - j) + " " + result);
-                    result = Math.max(result, Math.abs(i - j));
-                }
-                System.out.println("-----");
+
+        for (int i = 0; i < N; i++){
+            if (temp.containsKey(A[i])){
+                temp.values().add(newA.indexOf(A[i]));
             }
-        return result;
+        }
+
+//        for (int i = 0; i < N; i++)
+//            for (int j = 0; j < N; j++) {
+//                if (A[i] == A[j]) {
+//                    result = Math.max(result, Math.abs(i - j));
+//                }
+//            }
+//        return result;
     }
 }
 
